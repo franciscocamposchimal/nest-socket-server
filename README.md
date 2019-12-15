@@ -65,12 +65,15 @@ mongodb://franko:franko1587@ds353358.mlab.com:53358/websockets
 ```
 
 # Vue para el lado del cliente
+
+> Esta parte del cliente es para el framework de vue, por el momento usaremos un html para las pruebas
+
 Instalación de manera global, creación del proyecto, librerias para conexión al server, librería para componentes de material y levantar el server.
-```
-yarn global add @vue/cli
-vue create my-project
-yarn add socket.io-client vue-socket.io-extended
-vue add vuetify
-vue invoke vuetify
-yarn serve
+```shell
+$ yarn global add @vue/cli
+$ vue create my-project
+$ yarn add socket.io-client vue-socket.io-extended
+$ vue add vuetify
+$ vue invoke vuetify
+$ yarn serve
 ```
