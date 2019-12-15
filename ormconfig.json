@@ -1,0 +1,11 @@
+{
+    "type": "mongodb",
+    "host": "ds353358.mlab.com",
+    "port": 53358,
+    "username": "franko",
+    "password": "franko1587",
+    "database": "websockets",
+    "entities": ["src/**/**.entity{.ts,.js}"],
+    "useUnifiedTopology": true,
+    "synchronize": true
+  }
