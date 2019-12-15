@@ -1,5 +1,7 @@
 # Servidor websockets con NestJs
 
+> Recordar que cuando se descargue el repositorio tienen que hacer un npm install.
+
 Ejemplo sobre desarrollo de un servidor websockets con NestJS para comunicación en tiempo real.
 
 ## Entorno de desarrollo
@@ -19,52 +21,52 @@ Ejemplo sobre desarrollo de un servidor websockets con NestJS para comunicación
 ## Commandos y librerías
 
 Instalación de NestJs forma global.
-```
-npm install -g @nestjs/cli / yarn global add @nestjs/cli
+```shell
+$ npm install -g @nestjs/cli / yarn global add @nestjs/cli
 ```
 
 Genera un nuevo proyecto.
+```shell
+$ nest new my-nest-project
 ```
-nest new my-nest-project
-````
 
 Librerías importtantes para el websocket.
+```shell
+$ yarn add @nestjs/websockets @nestjs/platform-socket.io
+$ yarn add -D @types/socket.io
 ```
-yarn add @nestjs/websockets @nestjs/platform-socket.io
-yarn add -D @types/socket.io
-````
 
 Librerías para el ORM, driver de mongo, lectura del archivo .env
+```shell
+$ yarn add @nestjs/typeorm typeorm mongodb dotenv
+$ yarn add -D nodemon ts-node
 ```
-yarn add @nestjs/typeorm typeorm mongodb dotenv
-yarn add -D nodemon ts-node
-````
 
 Generamos un archivo gateway en el servidor.
-```
-nest g ga app
+```shell
+$ nest g ga app
 ```
 Short cuts para crear , model, service, controller, clase para la entidad.
-```
-nest g mo users
-nest g s users
-nest g co users
-nest g class users/user.entity
+```shell
+$ nest g mo users
+$ nest g s users
+$ nest g co users
+$ nest g class users/user.entity
 ```
 
 Levanta el servidor en modo desarrolador.
-```
-yarn start:dev
+```shell
+$ yarn start:dev
 ```
 
-# Base de datos
+## Base de datos
 Mi instancia de la base de datos en mongo fue creada en [mlab](https://mlab.com/).
-Cadena de conexión.
+
 ```
 mongodb://franko:franko1587@ds353358.mlab.com:53358/websockets
 ```
 
-# Vue para el lado del cliente
+## Vue para el lado del cliente
 
 > Esta parte del cliente es para el framework de vue, por el momento usaremos un html para las pruebas
 
