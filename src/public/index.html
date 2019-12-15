@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat Demo</title>
+    <style>
+        body {
+            font-size: 20px;
+        }
+
+        #chat {
+            margin-bottom: 1em;
+        }
+
+        .message {
+            padding: 0.5em;
+        }
+
+        .message:nth-child(even) {
+            background-color: #eee;
+        }
+
+        .message:last-child {
+            margin-bottom: 3.5em;
+        }
+
+        .username {
+            font-weight: bold;
+        }
+
+        .interface {
+            height: 3.5em;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background: #fff;
+            box-shadow: 10px 10px 5px #888888;
+        }
+
+        input,
+        button {
+            padding: .5em;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        #nameinput {
+            width: 20%;
+        }
+
+        #messageinput {
+            width: 60%;
+        }
+
+        #send {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="chat">
+    </div>
+
+    <div class="interface">
+        <input id="nameinput" type="text" value="Anonymous" placeholder="Your Name"><input id="messageinput" type="text"
+            placeholder="Write your message here"><button id="send">Send</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+    <script>
+        var socket = io('http://localhost:3000');
+        
+        socket.on('connect', () => console.log("CONECTED"));
+
+        socket.on('disconnect', () => console.log("DISCONNECTED"));
+    </script>
+</body>
+
+</html>
