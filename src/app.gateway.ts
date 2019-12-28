@@ -32,6 +32,12 @@ export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
     this.server.emit('ALL_USERS', allUser);
   }
 
+  @SubscribeMessage('LOGIN')
+  async login(client: Socket, payload: any) {
+    this.logger.log(`Client : ${client.id}, username: ${payload.username}, msg: ${payload.message}`);
+  }
+
+
   @SubscribeMessage('PRIVATE_MSN')
   async privateMsn(client: Socket, payload: any): Promise<any> {
     let allUser = await this.userService.findAll();
@@ -51,4 +57,5 @@ export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
     this.logger.log(`Client connected: ${client.id}`);
     await this.userService.create(client.id);
   }
+
 }

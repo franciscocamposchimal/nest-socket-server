@@ -76,11 +76,29 @@
 
     <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
     <script>
+        //localStorage.setItem('user_name', 'FrankoCampos');
+        var usernameItem = (localStorage.getItem('user_name') == null) 
+        ? "no user" 
+        : localStorage.getItem('user_name');
+        console.log(usernameItem);
+        //localStorage.removeItem('user_name');
+        
+        var sendButton = document.getElementById("send");
+        var messageToSend = document.getElementById("messageinput");
+        
         var socket = io('http://localhost:3000');
         
-        socket.on('connect', () => console.log("CONECTED"));
+        socket.on('connect', () => {
+            sendButton.addEventListener("click", () => {
+                console.log(`CLICK ${messageToSend.value}`);
+                socket.emit('LOGIN',{username: usernameItem, message: messageToSend.value});
+            });
+        });
 
         socket.on('disconnect', () => console.log("DISCONNECTED"));
+
+
+        
     </script>
 </body>
 
